@@ -1,0 +1,436 @@
+/* ===== RESET GENERAL ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  font-family: "Poppins", sans-serif;
+  color: #222;
+  background: linear-gradient(180deg, #e6f3ff, #f9fcff);
+  transition: background 0.6s, color 0.4s;
+  scroll-behavior: smooth;
+}
+
+/* ===== HEADER Y NAVEGACIÓN ===== */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background: #0078d4;
+  color: #fff;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+
+.logo {
+  font-size: 1.4rem;
+  font-weight: bold;
+}
+
+/* Menú */
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.menu-toggle {
+  display: none;
+  background: transparent;
+  border: none;
+  color: #fff;
+  font-size: 1.8rem;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.menu-toggle:hover {
+  transform: rotate(90deg);
+}
+
+.menu-links {
+  display: flex;
+  gap: 1rem;
+}
+
+.menu-links a, .modo-btn {
+  color: #fff;
+  text-decoration: none;
+  padding: .5rem 1rem;
+  border-radius: .5rem;
+  transition: background 0.3s, transform 0.2s;
+}
+
+.menu-links a:hover, .modo-btn:hover {
+  background: rgba(255,255,255,0.2);
+  transform: scale(1.05);
+}
+
+.modo-btn {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 1.4rem;
+}
+
+/* ===== MENU RESPONSIVE ===== */
+@media (max-width: 800px) {
+  .menu-toggle {
+    display: block;
+  }
+
+  .menu-links {
+    display: none;
+    flex-direction: column;
+    background: #0078d4;
+    position: absolute;
+    top: 70px;
+    right: 0;
+    width: 100%;
+    padding: 1rem 0;
+    text-align: center;
+  }
+
+  .menu-links.open {
+    display: flex;
+    animation: slideDown 0.4s ease;
+  }
+
+  @keyframes slideDown {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+}
+
+/* ===== HERO ===== */
+.hero {
+  background: linear-gradient(135deg, #74c7ff, #0078d4);
+  color: #fff;
+  text-align: center;
+  padding: 6rem 1rem;
+  margin-top: 1rem;
+  border-radius: 1.5rem;
+  transition: background 0.6s ease;
+}
+
+.hero-content {
+  max-width: 700px;
+  margin: 0 auto;
+  line-height: 1.7;
+}
+
+.hero h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.hero p {
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
+}
+
+.hero .btn {
+  display: inline-block;
+  background: #fff;
+  color: #0078d4;
+  padding: 0.8rem 1.6rem;
+  border-radius: 2rem;
+  font-weight: 600;
+  transition: all 0.4s;
+}
+
+.hero .btn:hover {
+  background: #0078d4;
+  color: #fff;
+  transform: scale(1.08);
+}
+
+/* ===== CONTENIDO GENERAL ===== */
+.container {
+  max-width: 1000px;
+  margin: 3rem auto;
+  padding: 1rem;
+}
+
+.card {
+  background: #fff;
+  border-radius: 1rem;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  transition: background 0.5s, color 0.5s;
+}
+
+/* ===== BOTONES ===== */
+button, .btn {
+  border: none;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s;
+}
+
+#btnCalcular {
+  background: #0078d4;
+  color: white;
+  padding: 0.8rem 1.2rem;
+  border-radius: 0.8rem;
+  font-size: 1rem;
+  font-weight: 600;
+  position: relative;
+  overflow: hidden;
+}
+
+#btnCalcular:hover {
+  background: #005fa3;
+  transform: scale(1.05);
+}
+
+#btnCalcular::after {
+  content: "";
+  position: absolute;
+  top: 0; left: -100%;
+  width: 100%; height: 100%;
+  background: rgba(255,255,255,0.3);
+  transition: left 0.4s;
+}
+
+#btnCalcular:hover::after {
+  left: 100%;
+}
+
+/* ===== FORMULARIOS ===== */
+form label {
+  display: block;
+  margin: 1rem 0 0.3rem;
+  font-weight: 600;
+}
+
+form input, form select, form textarea {
+  width: 100%;
+  padding: 0.7rem;
+  border-radius: 0.5rem;
+  border: 1.5px solid #ccc;
+  font-size: 1rem;
+  transition: border 0.3s, box-shadow 0.3s;
+}
+
+form input:focus, form select:focus, form textarea:focus {
+  border-color: #0078d4;
+  box-shadow: 0 0 5px rgba(0,120,212,0.4);
+  outline: none;
+}
+
+/* ===== MODO OSCURO ===== */
+body.oscuro {
+  background: linear-gradient(180deg, #0e0e0e, #1a1a1a);
+  color: #eee;
+}
+
+body.oscuro .header {
+  background: #222;
+  box-shadow: 0 2px 10px rgba(255,255,255,0.1);
+}
+
+body.oscuro .menu-links a:hover,
+body.oscuro .modo-btn:hover {
+  background: rgba(255,255,255,0.1);
+}
+
+body.oscuro .hero {
+  background: linear-gradient(135deg, #111, #333);
+}
+
+body.oscuro .card {
+  background: #222;
+  color: #eee;
+  box-shadow: 0 4px 10px rgba(255,255,255,0.05);
+}
+
+body.oscuro input, body.oscuro select, body.oscuro textarea {
+  background: #2b2b2b;
+  color: #eee;
+  border-color: #555;
+}
+
+body.oscuro #btnCalcular {
+  background: #0a84ff;
+}
+
+body.oscuro .hero .btn {
+  background: #eee;
+  color: #111;
+}
+
+body.oscuro footer {
+  background: #111;
+  color: #bbb;
+}
+
+/* ===== FOOTER ===== */
+footer {
+  text-align: center;
+  padding: 1.5rem;
+  background: #0078d4;
+  color: white;
+  font-size: 0.9rem;
+  border-radius: 1rem 1rem 0 0;
+  margin-top: 3rem;
+}
+/* Botón Limpiar (modo claro) */
+#btnLimpiar {
+  background: #f0f0f0;
+  color: #333;
+  border: 2px solid #ccc;
+  padding: 0.8rem 1.2rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s, color 0.3s, border-color 0.3s, transform 0.2s;
+}
+
+#btnLimpiar:hover {
+  background: #e0e0e0;
+  border-color: #999;
+  transform: translateY(-2px);
+}
+
+/* Botón Limpiar (modo oscuro) */
+body.oscuro #btnLimpiar {
+  background: #333;
+  color: #ddd;
+  border: 2px solid #555;
+}
+
+body.oscuro #btnLimpiar:hover {
+  background: #444;
+  border-color: #888;
+  transform: translateY(-2px);
+}
+
+/* Botón Enviar (modo claro) */
+#contactForm button[type="submit"] {
+  background: #0078d4;
+  color: #fff;
+  border: none;
+  padding: 0.9rem 1.4rem;
+  border-radius: 10px;
+  font-size: 1.05rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s, box-shadow 0.2s;
+}
+
+#contactForm button[type="submit"]:hover {
+  background: #005fa3;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  transform: translateY(-3px);
+}
+
+/* Botón Enviar (modo oscuro) */
+body.oscuro #contactForm button[type="submit"] {
+  background: #0a84ff;
+  color: #fff;
+}
+
+body.oscuro #contactForm button[type="submit"]:hover {
+  background: #0066cc;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+  transform: translateY(-3px);
+}
+/* ================= MAPA RESPONSIVO ================= */
+#mapid {
+  width: 100%;
+  max-width: 100%;
+  height: 450px;
+  border-radius: 16px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+  margin-top: 0.5rem;
+}
+
+/* Modo oscuro */
+body.oscuro #mapid {
+  filter: brightness(0.85) contrast(1.1);
+
+}
+/* ===== GALERÍA DE IMÁGENES ===== */
+.galeria {
+  text-align: center;
+  margin: 4rem auto;
+  padding: 2rem 1rem;
+  border-radius: 1.5rem;
+  background: rgba(255, 255, 255, 0.6);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  transition: background 0.6s ease, color 0.4s ease;
+}
+
+.galeria h2 {
+  font-size: 1.8rem;
+  margin-bottom: 2rem;
+  color: #0078d4;
+}
+
+.galeria-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+  justify-items: center;
+}
+
+.galeria figure {
+  overflow: hidden;
+  border-radius: 1rem;
+  background: #fff;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.galeria img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 1rem 1rem 0 0;
+  transition: transform 0.4s ease;
+}
+
+.galeria figure:hover img {
+  transform: scale(1.07);
+}
+
+.galeria figure:hover {
+  box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+  transform: translateY(-4px);
+}
+
+.galeria figcaption {
+  padding: 0.8rem 1rem;
+  font-size: 0.95rem;
+  color: #333;
+  background: #f9f9f9;
+  border-radius: 0 0 1rem 1rem;
+}
+
+/* ===== MODO OSCURO ===== */
+body.oscuro .galeria {
+  background: rgba(25, 25, 25, 0.8);
+  box-shadow: 0 4px 16px rgba(255, 255, 255, 0.05);
+}
+
+body.oscuro .galeria h2 {
+  color: #9ecfff;
+}
+
+body.oscuro .galeria figure {
+  background: #222;
+  box-shadow: 0 4px 10px rgba(255, 255, 255, 0.05);
+}
+
+body.oscuro .galeria figcaption {
+  background: #1a1a1a;
+  color: #eee;
+}
+

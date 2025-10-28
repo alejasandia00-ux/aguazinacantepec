@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Proyecto educativo de captación de agua pluvial en Zinacantepec" />
+  <title>💧 Captación de Agua Pluvial — Zinacantepec</title>
+
+  <!-- Enlaza tu CSS -->
+  <link rel="stylesheet" href="css/estilos.css">
+  <link rel="icon" type="image/png" href="https://cdn-icons-png.flaticon.com/512/4149/4149747.png">
+</head>
+<body>
+  <header class="header">
+    <div class="logo">💧 ALESANALA</div>
+
+    <nav class="nav" aria-label="Navegación principal">
+      <!-- BOTÓN MENÚ (solo uno) -->
+      <button id="menuToggle" class="menu-toggle" aria-expanded="false" aria-controls="menuLinks">☰</button>
+
+      <div id="menuLinks" class="menu-links">
+        <!-- Botón modo oscuro -->
+        <button id="modoToggle" class="modo-btn" aria-pressed="false" title="Modo oscuro">🌙</button>
+
+        <a href="#inicio">Inicio</a>
+        <a href="#problema">Problema</a>
+        <a href="#soluciones">Soluciones</a>
+        <a href="#calculadora">Calculadora</a>
+        <a href="#educacion">Educación</a>
+        <a href="#mapa">Mapa</a>
+        <a href="#contacto">Contacto</a>
+      </div>
+    </nav>
+  </header>
+
+  <section id="inicio" class="hero">
+    <div class="hero-content">
+      <h1>Captación de Agua Pluvial</h1>
+      <p>Soluciones sostenibles para aprovechar la lluvia y cuidar el agua en Zinacantepec.</p>
+      <a href="#calculadora" class="btn">Calcular mi ahorro</a>
+    </div>
+  </section>
+
+  <main class="container">
+    <section id="problema" class="card">
+      <h2>El problema</h2>
+      <p>El desperdicio de agua es uno de los mayores retos ambientales. En Zinacantepec, aprovechar la lluvia puede ser una gran solución.</p>
+    </section>
+
+    <section id="soluciones" class="card">
+      <h2>Soluciones prácticas</h2>
+      <ul>
+        <li>Instalar canaletas y filtros.</li>
+        <li>Usar sistemas de primer chorro.</li>
+        <li>Almacenar en tinacos o cisternas con tapa.</li>
+      </ul>
+    </section>
+
+    <!-- ========== CALCULADORA ========== -->
+    <section id="calculadora" class="card calculadora">
+      <h2>💧 Calculadora de Captación Pluvial</h2>
+
+      <form id="form-calculadora" autocomplete="off" novalidate>
+        <label for="superficie">Superficie del techo (m²):</label>
+        <input type="text" id="superficie" placeholder="Ej. 120" inputmode="decimal" required />
+
+        <label for="lluvia">Promedio anual de lluvia (mm):</label>
+        <input type="text" id="lluvia" placeholder="Ej. 800" inputmode="decimal" required />
+
+        <label for="coef">Tipo de techo:</label>
+        <select id="coef" required>
+          <option value="0.8">Techo de lámina (0.8)</option>
+          <option value="0.7">Techo de teja (0.7)</option>
+          <option value="0.6">Techo de concreto (0.6)</option>
+        </select>
+
+        <div style="display:flex;gap:.6rem;">
+          <button type="submit" id="btnCalcular">Calcular</button>
+          <button type="button" id="btnLimpiar" class="btn">Limpiar</button>
+        </div>
+
+        <div id="mensaje" class="mensaje" role="status" aria-live="polite"></div>
+      </form>
+
+      <div id="resultados" class="resultado" style="display:none;"></div>
+
+      <div class="compartir" style="display:none;" id="compartirBlock">
+        <a id="share-fb" class="btn-share fb" target="_blank" rel="noopener">📘 Compartir en Facebook</a>
+        <a id="share-ig" class="btn-share ig">📸 Copiar para Instagram</a>
+        <a id="share-wa" class="btn-share" style="background:#25D366;" target="_blank" rel="noopener">💬 Compartir en WhatsApp</a>
+      </div>
+    </section>
+
+    <section id="educacion" class="card">
+      <h2>Educación y mantenimiento</h2>
+      <p>Aprende más sobre cómo mantener tu sistema de captación y mejorar su eficiencia.</p>
+      <ul>
+        <li class="tooltip">Limpia los filtros cada 15 días<span class="tooltiptext">Evita acumulación de hojas o insectos.</span></li>
+        <li>Revisa la estructura del techo cada temporada de lluvias.</li>
+        <li>Desinfecta el agua captada si se usará para consumo.</li>
+      </ul>
+    </section>
+    <section id="galeria" class="galeria">
+  <h2>Inspiración en la captación pluvial</h2>
+  <div class="galeria-grid">
+    <figure>
+      <img src="img/lluviahello.jpg" alt="Gotas de lluvia en ventana">
+      <figcaption>La belleza de la lluvia en cada gota.</figcaption>
+    </figure>
+    <figure>
+      <img src="img/pozo.jpg" alt="Sistema de recolección de agua">
+      <figcaption>Captar el agua, cuidar el planeta.</figcaption>
+    </figure>
+    <figure>
+      <img src="img/planeta.jpg" alt="Manos sosteniendo agua limpia">
+      <figcaption>El futuro depende de cómo cuidemos el agua.</figcaption>
+    </figure>
+  </div>
+</section>
+
+
+    <section id="mapa" class="card">
+  <h2>Mapa interactivo — Zinacantepec</h2>
+  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d241133.81742502082!2d-99.91722765032031!3d19.207607285815474!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85cd87c4c06f142f%3A0x93dba26b8fc83890!2sSan%20Miguel%20Zinacantepec%2C%20M%C3%A9x.!5e0!3m2!1ses-419!2smx!4v1761331526015!5m2!1ses-419!2smx" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+  <div id="mapid"></div>
+</section>
+
+
+    <section id="contacto" class="card contacto">
+      <h2>Contáctanos</h2>
+      <form id="contactForm" novalidate>
+        <label for="correo">Correo electrónico:</label>
+        <input type="email" id="correo" placeholder="ejemplo@correo.com" required>
+
+        <label for="telefono">Teléfono:</label>
+        <input type="tel" id="telefono" placeholder="10 dígitos" pattern="[0-9]{10}" required>
+
+        <label for="mensajeContacto">Mensaje:</label>
+        <textarea id="mensajeContacto" rows="4" placeholder="Escribe tu mensaje aquí..." required></textarea>
+
+        <button type="submit">Enviar</button>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <p>💧 Captación de Agua Pluvial — Zinacantepec</p>
+    <small>© 2025 ALESANALA| Proyecto educativo</small>
+  </footer>
+
+  <!-- SCRIPTS -->
+  <script src="js/script.js"></script>
+  <link
+  rel="stylesheet"
+  href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+  integrity="sha256-sA+qw2Hc+Wvqlw9r7g8KwZfNvh1j1uNu9+3Fv5v0vQA="
+  crossorigin=""
+/>
+<script
+  src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+  integrity="sha256-o9N1j6wrXZ5s5Ht/3DfB4X5wRIp1TQv5DR4iwQXYeEc="
+  crossorigin=""
+></script>
+</body>
+</html>
